@@ -3,15 +3,15 @@
 Embot is a simple bot for [37signals'](http://37signals.com)
 [Campfire](http://campfirenow.com/) chat application. Embot can connect
 to a specific room and start listening for incomming messages. Each
-message will be parsed on to a series of *command handlers* until one
+message will be parsed on to a series of *message handlers* until one
 of them reacts upon the message and writes something back to the chat
 room.
 
 - - -
 
-## Built-in Command Handlers ##
+## Built-in Message Handlers ##
 
-Embot comes with a couple of command handlers to go:
+Embot comes with a couple of message handlers to go:
 
 ### Bash.org Quote Fetcher ###
 
@@ -42,7 +42,7 @@ somebody writes a message that begins with `hi|hey|hello|yo embot`
 Want to see a picture of *fail*? write `embot image fail`. Or what
 about a picture of Pedobear? write `embot image pedobear`.
 
-**Warning:** This command handler is very addictive and can decrease
+**Warning:** This message handler is very addictive and can decrease
 employee productivity with up to 60%!
 
 ### Random Quote Fetcher ###
@@ -75,40 +75,40 @@ Embot uses the [Tinder gem](https://github.com/collectiveidea/tinder) to
 interact with Campfire. Install Tinder by typing `gem install tinder` in
 the terminal.
 
-Most command handlers in Embot makes use of the [Nokogiri gem](http://nokogiri.org)
+Most message handlers in Embot makes use of the [Nokogiri gem](http://nokogiri.org)
 to scrape content from websites. Install Nokogiri by typing `gem install nokogiri`
 in the terminal.
 
 - - -
 
-## Creating Your Own Command Handlers ##
+## Creating Your Own Message Handlers ##
 
-Creating your own command handlers for Embot is pretty straigh-forward,
+Creating your own message handlers for Embot is pretty straigh-forward,
 if you know the [Ruby language](http://ruby-lang.org) of course. ;)
 
-Here are the steps to create a command handler:
+Here are the steps to create a message handler:
 
- * Create a new `.rb` file in the `lib/embot/command` folder
- * Create a new class in the `Embot::Command` module that inherits from
-   `Embot::Command::Base` class (see example code further down)
+ * Create a new `.rb` file in the `lib/embot/messagehandler` folder
+ * Create a new class in the `Embot::MessageHandler` module that inherits from
+   `Embot::MessageHandler::Base` class (see example code further down)
  * Implement a method called `process` which takes one parameter called
    `message` (will be an instance of `Embot::Message` class)
  * Return a message with one of `speak`, `paste`, `play` or `tweet`
-   methods if you want the command handler to react to the given
+   methods if you want the message handler to react to the given
 message.
  * If you don't want to react to the given message, simply return `nil`
- * `require` your new command handler at the top of the `embot.rb` file
-   (`require './lib/embot/command/example.rb'`)
- * Register and instance of your command handler in the `@commands` array in `lib/embot.rb`
+ * `require` your new message handler at the top of the `embot.rb` file
+   (`require './lib/embot/messagehandler/example.rb'`)
+ * Register and instance of your message handler in the `@message_handlers` array in `lib/embot.rb`
    file
 
-### Example Command Handler File ###
+### Example Message Handler File ###
 
-This example command handler will write "Hey, watch your mouth!" if it
+This example message handler will write "Hey, watch your mouth!" if it
 sees a message that contain the word "fuck"
 
     module Embot
-      module Command
+      module MessageHandler
         class Example < Base
           def process(message)
             return speak("Hey, watch your mouth!") if message.body.include? 'fuck'
