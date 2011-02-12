@@ -3,14 +3,14 @@ require 'open-uri'
 require 'cgi'
 
 module Embot
-  module Command
+  module MessageHandler
 
-    # Bash quote command handler
+    # Bash quote message handler
     #
     # This handler will scrape bash.org for an IRC quote and
     # return it as a paste message to Campfire
     #
-    # The command handler can fetch a random quote or a quote on a specific
+    # The message handler can fetch a random quote or a quote on a specific
     # topic, depending on the parameter. If 'random' is given as parameter, a
     # random quote will be returned, otherwise it will take the parameter and
     # search for a quote that matches.

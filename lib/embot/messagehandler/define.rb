@@ -3,11 +3,11 @@ require 'open-uri'
 require 'cgi'
 
 module Embot
-  module Command
+  module MessageHandler
 
-    # Google Define command handler
+    # Google Define message handler
     #
-    # This command handler will perform a Google Define search with the parameters
+    # This message handler will perform a Google Define search with the parameters
     # given as the query and post it to Campfire.
     #
     # Triggers on command: embot define [search query]

@@ -1,8 +1,8 @@
 module Embot
-  module Command
+  module MessageHandler
 
-    # Base command handler class
-    # All command handlers should inherit from this class
+    # Base message handler class
+    # All message handlers should inherit from this class
     class Base
 
       protected

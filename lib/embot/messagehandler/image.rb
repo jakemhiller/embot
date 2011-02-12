@@ -3,11 +3,11 @@ require 'open-uri'
 require 'cgi'
 
 module Embot
-  module Command
+  module MessageHandler
 
-    # Image command handler
+    # Image message handler
     #
-    # This command handler will post a random image from Google Image Search
+    # This message handler will post a random image from Google Image Search
     # with the command parameters as search query
     #
     # Triggers on command: embot image [search query]

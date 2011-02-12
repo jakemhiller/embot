@@ -2,11 +2,11 @@ require 'nokogiri'
 require 'open-uri'
 
 module Embot
-  module Command
+  module MessageHandler
 
-    # Quote command handler
+    # Quote message handler
     #
-    # This command handler will post a random quote from
+    # This message handler will post a random quote from
     # www.quotationspage.com
     #
     # Triggers on command: embot quote

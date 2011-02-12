@@ -1,9 +1,9 @@
 module Embot
-  module Command
+  module MessageHandler
 
-    # Greeter command handler
+    # Greeter message handler
     #
-    # Simple command handler that will say "Welcome #{username}!" to users
+    # Simple message handler that will say "Welcome #{username}!" to users
     # who enter the chat room.
     #
     # In addition to greeting new users, it will also respond with "Hi #{username}" if users are greeting

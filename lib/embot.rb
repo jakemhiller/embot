@@ -1,28 +1,28 @@
 module Embot
 
-  # Active command handlers that will process
+  # Active message handlers that will process
   # messages from the chat
   #
-  # To disable a command, simply comment it out
-  @commands = [
-    Embot::Command::Bash.new,
-    Embot::Command::Define.new,
-    Embot::Command::Image.new,
-    Embot::Command::Quote.new,
-    Embot::Command::Greeter.new,
+  # To disable a handler, simply comment it out
+  @message_handlers = [
+    Embot::MessageHandler::Bash.new,
+    Embot::MessageHandler::Define.new,
+    Embot::MessageHandler::Image.new,
+    Embot::MessageHandler::Quote.new,
+    Embot::MessageHandler::Greeter.new,
   ]
 
   # Process a chat message
   #
   # The method will send the message to each
-  # command handler in @commands variable until
-  # a command handler acts on the message. 
+  # message handler in @message_handlers variable until
+  # a message handler acts on the message.
   #
-  # If no command handlers get triggered by the
+  # If no message handlers get triggered by the
   # message, it will return nil
   def self.process_message(message)
-    @commands.each do |command|
-      response = command.process(message)
+    @message_handlers.each do |handler|
+      response = handler.process(message)
       return response unless response.nil?
     end
 
