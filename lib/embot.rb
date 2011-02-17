@@ -5,11 +5,15 @@ module Embot
   #
   # To disable a handler, simply comment it out
   @message_handlers = [
-    Embot::MessageHandler::Bash.new,
+    # Embot::MessageHandler::Bash.new,
     Embot::MessageHandler::Define.new,
     Embot::MessageHandler::Image.new,
     Embot::MessageHandler::Quote.new,
     Embot::MessageHandler::Greeter.new,
+    Embot::MessageHandler::Repost.new,
+    Embot::MessageHandler::Wiki.new,
+    Embot::MessageHandler::Help.new,
+    Embot::MessageHandler::Gif.new,
   ]
 
   # Process a chat message

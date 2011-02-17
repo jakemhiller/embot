@@ -6,7 +6,7 @@ module Embot
 
     def initialize(message)
       @message = message
-      @trigger, @command, @parameters = message[:body].to_s.split(' ', 3)
+      @command, @parameters = message[:body].to_s.split(' ', 2)
     end
 
     def self.should_be_ignored?(message)
@@ -62,11 +62,6 @@ module Embot
     # Determine if message body matches certain regular expression
     def matches_regex?(regex)
       @message[:body].to_s.match(regex)
-    end
-
-    # Determine if message is intended for Embot
-    def is_for_embot?
-      @trigger.to_s == 'embot'
     end
 
     # Determine if command is a certain string
