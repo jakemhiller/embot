@@ -12,7 +12,7 @@ module Embot
     # Triggers on command: embot quote
     class Quote < Base
       def process(message)
-        return nil if !message.is_for_embot? || !message.command_is?('quote')
+        return nil if !message.command_is?('/quote')
         quote = random_quote
 
         if quote.nil?

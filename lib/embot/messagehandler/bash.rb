@@ -18,7 +18,7 @@ module Embot
     # Triggers on command: embot bash [random|search query]
     class Bash < Base
       def process(message)
-        return nil if !message.is_for_embot? or !message.command_is?('bash')
+        return nil if !message.command_is?('/bash')
 
         if message.parameters_are?('random') or message.no_parameters?
           quote = random_quote

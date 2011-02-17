@@ -13,7 +13,7 @@ module Embot
     # Triggers on command: embot define [search query]
     class Define < Base
       def process(message)
-        return nil if !message.is_for_embot? or !message.command_is?('define')
+        return nil if !message.command_is?('/define')
         return speak("Define what?") if message.no_parameters?
 
         definition = get_definition(message.parameters)
