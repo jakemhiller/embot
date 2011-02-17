@@ -14,6 +14,7 @@ module Embot
     Embot::MessageHandler::Wiki.new,
     Embot::MessageHandler::Help.new,
     Embot::MessageHandler::Gif.new,
+    Embot::MessageHandler::Clear.new,
   ]
 
   # Process a chat message

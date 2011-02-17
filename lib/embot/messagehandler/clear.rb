@@ -10,10 +10,10 @@ module Embot
     #
     # Triggers on command:  /repost
     
-    class Repost < Base
+    class Clear < Base
       def process(message)
-        return nil if !message.command_is?('/repost')
-        quote = ('http://jakehiller.com/images/REPOSTD.gif')
+        return nil if !message.command_is?('/clear')
+        quote = ('http://lol.jaykillah.net/images/clear.png')
 
         if quote.nil?
           return speak('Sorry, unable to fetch quote at the moment')
