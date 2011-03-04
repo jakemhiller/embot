@@ -7,6 +7,7 @@ module Embot
   @message_handlers = [
     # Embot::MessageHandler::Bash.new,
     Embot::MessageHandler::Define.new,
+    Embot::MessageHandler::Urban.new,
     Embot::MessageHandler::Image.new,
     Embot::MessageHandler::Quote.new,
     Embot::MessageHandler::Greeter.new,
